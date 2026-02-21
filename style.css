@@ -1,0 +1,452 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(
+    135deg,
+    #5a0018,
+    #800020,
+    #4a0014
+  );
+
+  font-family: 'Dancing Script', cursive;
+  overflow-x: hidden;
+}
+
+/* Pages */
+.page {
+  min-height: 100vh;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.page.active {
+  display: flex;
+}
+
+/* Titles */
+.title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 42px;
+  color: #f5d76e;
+  margin-bottom: 30px;
+  text-shadow: 0 3px 10px rgba(0,0,0,0.4);
+}
+
+/* Typing */
+#typingText {
+  font-size: 54px;
+  color: #d4af37;
+  min-height: 120px;
+  font-family: 'Great Vibes', cursive;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+  text-shadow: 0 4px 15px rgba(0,0,0,0.6);
+}
+
+/* Buttons */
+.btn {
+  margin-top: 25px;
+  padding: 12px 28px;
+  font-size: 22px;
+  font-family: 'Great Vibes', cursive;
+  background: linear-gradient(135deg, #800020, #5a0018);
+  color: #f5d76e;
+  border: 2px solid #d4af37;
+  border-radius: 40px;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+}
+
+.hidden {
+  display: none;
+}
+
+/* Gallery */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.img-box {
+  width: 150px;
+  height: 190px;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+}
+
+.img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.img-box span {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.img-box:hover span {
+  opacity: 1;
+}
+
+/* Gift Boxes */
+.box-row {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.gift-box {
+  width: 120px;
+  height: 120px;
+  background: #fdf1e6; /* soft cream */
+  color: #800020; /* burgundy text */
+  border: 2px solid #d4af37; /* gold border */
+  border-radius: 18px;
+  font-size: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-family: 'Dancing Script', cursive;
+}
+
+/* When box opens */
+.gift-box.opened {
+  font-size: 16px;
+  padding: 14px;
+  background: #fff8e7; /* lighter cream */
+  color: #5a0018; /* darker burgundy for better visibility */
+}
+
+/* Tag */
+.tag {
+  margin-top: 45px;
+}
+
+.string {
+  width: 2px;
+  height: 45px;
+  background: #ffb6c1;
+  margin: auto;
+}
+
+.tag-body {
+  background: #fff8e7;
+  padding: 18px 28px;
+  border-radius: 20px;
+  font-family: 'Great Vibes', cursive;
+  font-size: 30px;
+  color: #800020;
+  animation: sway 3s ease-in-out infinite;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+
+.tag-body .name {
+  font-size: 34px;
+  color: #d4af37;
+}
+
+
+@keyframes sway {
+  0% { transform: rotate(-2deg); }
+  50% { transform: rotate(2deg); }
+  100% { transform: rotate(-2deg); }
+}
+
+/* Final Message Box */
+.final-message {
+  width: 600px;              /* slightly wider */
+  max-height: 750px;         /* better proportion */
+  background: #fff0f5;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+  overflow-y: auto;
+  font-family: 'Dancing Script', cursive;
+  font-size: 24px;           /* perfect readable size */
+  line-height: 1.9;          /* elegant spacing */
+  color: #6a1b4d;
+  margin: 0 auto;
+}
+
+.final-box {
+  background: rgba(255, 248, 231, 0.95);
+  border-radius: 26px;
+  padding: 32px 28px;
+  max-width: 700px;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.4);
+  backdrop-filter: blur(6px);
+  color: #5a0018;
+}
+
+
+/* ===== POLAROID BIRTHDAY CARD ===== */
+
+.download-only {
+  position: fixed;
+  left: -9999px;
+  top: -9999px;
+}
+
+.vertical-card {
+  width: 900px;
+  height: 520px;
+  background: #f6dce3;
+  border-radius: 35px;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px;
+  gap: 60px;
+  position: relative;
+}
+
+.polaroid {
+  background: #ffffff;
+  padding: 18px;
+  border-radius: 20px;
+  width: 360px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.06);
+}
+
+.polaroid img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+/* Birthday Title */
+.card-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 60px;
+  color: #b03052;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.card-title .heart {
+  margin-left: 6px;
+}
+
+/* Card center */
+.card-content {
+  flex: 1;
+  text-align: center;
+}
+
+.card-info {
+  margin-top: 20px;
+  font-size: 22px;
+  color: #5a2a3a;
+  font-family: 'Dancing Script', cursive;
+}
+
+.infinity {
+  color: #b03052;
+  font-size: 24px;
+}
+
+.card-quote {
+  font-family: 'Great Vibes', cursive;
+  font-size: 26px;
+  color: #7a3b52;
+  line-height: 1.8;
+}
+
+/* Countdown */
+#countdownArea {
+  display: none;
+}
+
+#countdownArea:not(.hidden) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.next-text {
+  font-family: 'Great Vibes', cursive;
+  font-size: 40px;
+  font-weight: 700;
+  color: #ff2f6e;
+  margin-bottom: 12px;
+  text-shadow: 0 3px 8px rgba(255,105,180,0.4);
+}
+
+#countdownNumber {
+  font-size: 64px;
+  font-family: 'Great Vibes', cursive;
+  color: #ff2f6e;
+  animation: pop 1s infinite;
+}
+
+@keyframes pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+/* Floating Hearts */
+.hearts-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.hearts-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.heart-float {
+  position: absolute;
+  bottom: -40px;
+  font-size: 26px;
+  animation: floatUp 6s linear infinite;
+  opacity: 0.7;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(0.8);
+    opacity: 0;
+  }
+  20% { opacity: 1; }
+  100% {
+    transform: translateY(-110vh) scale(1.2);
+    opacity: 0;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .vertical-card {
+    flex-direction: column;
+    height: auto;
+    width: 90%;
+  }
+}
+/* ===== NEW HORIZONTAL DOWNLOAD CARD ===== */
+
+/* ===== UPDATED LUXURY CARD ===== */
+
+/* ===== VINTAGE ROYAL LOVE LETTER CARD ===== */
+
+.horizontal-card {
+  width: 950px;
+  height: 520px;
+  background: linear-gradient(135deg, #5a0018, #800020);
+  border-radius: 35px;
+  border: 2px solid #d4af37; /* royal gold */
+  box-shadow: 
+    0 0 0 6px #5a0018,
+    0 0 0 8px #d4af37,
+    0 25px 70px rgba(0,0,0,0.4);
+  display: flex;
+  overflow: hidden;
+}
+
+
+/* LEFT IMAGE SIDE */
+.card-left {
+  width: 45%;
+  padding: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 2px solid #d4af37;
+}
+
+
+.card-left img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.2);
+}
+
+/* RIGHT SIDE */
+.card-right {
+  width: 55%;
+  padding: 60px 55px;
+  display: flex;
+  background: transparent;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  color: #f5d76e; /* soft gold */
+}
+
+/* TITLE */
+.card-title {
+  font-size: 44px;
+  color: #d4af37;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+/* VALIDITY */
+.card-validity {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Dancing Script', cursive;
+  font-size: 24px;
+}
+
+.valid-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-size: 20px;
+  opacity: 0.7;
+  color: #f8e7b0;
+
+}
+
+.infinity {
+  color: #c9a227;
+  font-size: 26px;
+}
+
+
+
+/* QUOTE */
+.card-quote {
+  font-size: 24px;
+  font-family: 'Great Vibes', cursive;
+  font-style: italic;
+  align-self: flex-start;   /* forces it to align left */
+  margin-left: 0;
+  margin-top: 50px;
+  color: #f8e7b0;
+  text-shadow: 0 0 8px rgba(212,175,55,0.4);
+}
