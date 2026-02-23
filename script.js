@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* ================= PAGE 1 : TYPING ================= */
-  const text = "Happy Birthday Divya❤︎⁠";
+  const text = "Happy Birthday Divya❤︎";
   let i = 0;
   const typing = document.getElementById("typingText");
   const startBtn = document.getElementById("startSurprise");
@@ -58,10 +58,21 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 1000);
   }
 
-  /* ================= PAGE BUTTON NAVIGATION ================= */
-  ["toPage3", "toPage4", "toPage5"].forEach(id => {
-    const btn = document.getElementById(id);
-    if (btn) btn.addEventListener("click", () => showPage(id.replace("to", "").toLowerCase()));
+  /* ================= BUTTON NAVIGATION ================= */
+  const navButtons = {
+    toPage3: "page3",
+    toPage4: "page4",
+    toPage5: "page5",
+    toPage6: "page6"
+  };
+
+  Object.keys(navButtons).forEach(btnId => {
+    const btn = document.getElementById(btnId);
+    if (btn) {
+      btn.addEventListener("click", () => {
+        showPage(navButtons[btnId]);
+      });
+    }
   });
 
   /* ================= PAGE 3 : GIFT BOXES ================= */
@@ -108,6 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ================= DOWNLOAD CARD ================= */
   const downloadBtn = document.getElementById("downloadCard");
   const card = document.getElementById("birthdayCard");
+
   if (downloadBtn && card && window.html2canvas) {
     downloadBtn.addEventListener("click", () => {
       html2canvas(card, { scale: 2 }).then(canvas => {
@@ -137,3 +149,50 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 });
+
+
+/* ================= CHOCOLATE SURPRISE ================= */
+function showChocoMessage() {
+  const popup = document.getElementById("choco-popup");
+  const choco = document.getElementById("choco");
+  const tapText = document.querySelector(".tap-text");
+  const nextBtn = document.getElementById("toPage5");
+
+  if (!popup || !choco) return;
+
+  choco.classList.add("clicked");
+
+  if (tapText) tapText.style.opacity = "0";
+
+  popup.classList.add("show");
+
+if (nextBtn) {
+  setTimeout(() => {
+    nextBtn.classList.remove("hidden");
+    nextBtn.classList.add("fade-in-btn");
+  }, 900);
+}
+  const rect = choco.getBoundingClientRect();
+  const cx = rect.left + rect.width / 2;
+  const cy = rect.top + rect.height / 2;
+
+  for (let i = 0; i < 50; i++) {
+    const confetti = document.createElement("div");
+    confetti.className = "confetti";
+
+    confetti.style.left = cx + "px";
+    confetti.style.top = cy + "px";
+
+    const x = (Math.random() - 0.5) * 800 + "px";
+    const y = (Math.random() - 0.5) * 800 + "px";
+
+    confetti.style.setProperty("--x", x);
+    confetti.style.setProperty("--y", y);
+
+    document.body.appendChild(confetti);
+
+    setTimeout(() => confetti.remove(), 1200);
+  }
+
+  choco.onclick = null;
+}

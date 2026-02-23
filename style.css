@@ -65,10 +65,6 @@ body {
   box-shadow: 0 8px 25px rgba(0,0,0,0.4);
 }
 
-.hidden {
-  display: none;
-}
-
 /* Gallery */
 .gallery {
   display: grid;
@@ -449,4 +445,169 @@ body {
   margin-top: 50px;
   color: #f8e7b0;
   text-shadow: 0 0 8px rgba(212,175,55,0.4);
+}
+
+.choco-container {
+  margin-top: 30px;
+}
+
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+
+
+.hidden {
+  display: none !important;
+}
+
+.popup {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 0.6s ease;
+}
+
+.popup.show {
+  opacity: 1;
+  transform: scale(1);
+}
+@keyframes popIn {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.tap-text {
+  margin-top: 20px;
+  font-size: 22px;
+  color: #ffd700;
+  font-family: 'Great Vibes', cursive;
+  animation: glowText 1.5s infinite alternate;
+  transition: opacity 0.5s ease;
+}
+
+/* Gift tag style */
+.gift-card {
+  background: linear-gradient(145deg, #fff5f8, #ffe4ec);
+  padding: 30px 45px;
+  border-radius: 25px;
+  border: 3px dashed #ff69b4;
+  box-shadow: 0 15px 40px rgba(255,105,180,0.4);
+  text-align: center;
+  animation: floatCard 2.5s ease-in-out infinite;
+}
+
+.gift-card h3 {
+  font-size: 30px;
+  margin-bottom: 10px;
+  color: #d63384;
+  font-family: 'Great Vibes', cursive;
+}
+
+.gift-card p {
+  font-size: 20px;
+  color: #6a1b4d;
+}
+@keyframes floatCard {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes glowText {
+  from { text-shadow: 0 0 5px gold; opacity: 0.7; }
+  to { text-shadow: 0 0 20px gold; opacity: 1; }
+}
+
+/* Chocolate subtle shake */
+.choco {
+  width: 190px;
+  cursor: pointer;
+  animation: floatChoco 2.5s ease-in-out infinite;
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+@keyframes floatChoco {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+
+
+.choco.clicked {
+  animation: none;
+  transform: scale(1.3);
+  filter: drop-shadow(0 0 30px gold);
+}
+
+
+
+/* Confetti */
+.confetti {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  background: gold;
+  border-radius: 50%;
+  z-index: 9999;
+  animation: burst 1.2s ease-out forwards;
+}
+
+
+@keyframes burst {
+  to {
+    transform: translate(var(--x), var(--y));
+    opacity: 0;
+  }
+}
+/* Smooth appearing next button */
+.fade-in-btn {
+  animation: slideFadeUp 0.8s ease forwards;
+}
+
+@keyframes slideFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Glowing hint text (Gallery page) */
+.hint {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: #fff; /* make text white */
+  font-family: 'Dancing Script', cursive;
+  animation: softGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes softGlow {
+  from {
+    text-shadow: 0 0 5px #ffffff,
+                 0 0 10px #ffb6c1,
+                 0 0 15px #ff69b4;
+  }
+  to {
+    text-shadow: 0 0 10px #ffffff,
+                 0 0 20px #ff1493,
+                 0 0 30px #ff1493;
+  }
 }
