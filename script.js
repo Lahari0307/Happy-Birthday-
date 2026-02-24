@@ -10,30 +10,75 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* ================= PAGE 1 : TYPING ================= */
-  const text = "Happy Birthday Divya❤︎";
-  let i = 0;
-  const typing = document.getElementById("typingText");
-  const startBtn = document.getElementById("startSurprise");
+const text = "Happy Birthday Divya ❤︎";
+let i = 0;
 
-  function type() {
-    if (!typing) return;
-    if (i < text.length) {
-      typing.innerHTML += text[i++];
-      setTimeout(type, 90);
-    } else if (startBtn) {
-      startBtn.classList.remove("hidden");
-    }
+const typing = document.getElementById("typingText");
+const startBtn = document.getElementById("startSurprise");
+
+/* ===== Sparkle Function ===== */
+function createSparkles() {
+  const sparkleContainer = document.querySelector(".sparkle-layer");
+  if (!sparkleContainer) return;
+
+  sparkleContainer.innerHTML = ""; // clear old ones
+
+  for (let i = 0; i < 25; i++) {
+    const sparkle = document.createElement("div");
+    sparkle.classList.add("sparkle");
+    sparkle.innerHTML = "✨";
+
+    sparkle.style.left = Math.random() * 100 + "vw";
+    sparkle.style.animationDuration = 4 + Math.random() * 4 + "s";
+    sparkle.style.animationDelay = Math.random() * 5 + "s";
+    sparkle.style.fontSize = 14 + Math.random() * 20 + "px";
+
+    sparkleContainer.appendChild(sparkle);
   }
-  type();
+}
+
+function type() {
+  if (!typing) return;
+
+  if (i < text.length) {
+    if (i === 0) createSparkles(); // start sparkles when typing begins
+    typing.textContent += text[i++];
+    setTimeout(type, 90);
+  } else {
+    // Add spotlight effect after typing finishes
+    typing.innerHTML = typing.innerHTML.replace(
+      "Divya",
+      "<span class='spotlight'>Divya</span>"
+    );
+
+    if (startBtn) startBtn.classList.remove("hidden");
+  }
+}
+
+type();
+
+/* ===== Remove Sparkles When Continue Clicked ===== */
+if (startBtn) {
+  startBtn.addEventListener("click", function () {
+    const sparkleLayer = document.querySelector("#page1 .sparkle-layer");
+    if (sparkleLayer) {
+      sparkleLayer.innerHTML = ""; // remove sparkles
+    }
+  });
+}
 
   /* ================= PAGE 1 : COUNTDOWN ================= */
-  if (startBtn) {
-    startBtn.addEventListener("click", () => {
-      startBtn.classList.add("hidden");
-      if (typing) typing.classList.add("hidden");
-      startCountdown();
-    });
+  startBtn.addEventListener("click", () => {
+
+  const music = document.getElementById("bgMusic");
+  if (music) {
+    music.play();
   }
+
+  startBtn.classList.add("hidden");
+  if (typing) typing.classList.add("hidden");
+  startCountdown();
+});
 
   function startCountdown() {
     const area = document.getElementById("countdownArea");
