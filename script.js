@@ -21,22 +21,26 @@ function createSparkles() {
   const sparkleContainer = document.querySelector(".sparkle-layer");
   if (!sparkleContainer) return;
 
-  sparkleContainer.innerHTML = ""; // clear old ones
+  sparkleContainer.innerHTML = "";
 
   for (let i = 0; i < 25; i++) {
     const sparkle = document.createElement("div");
     sparkle.classList.add("sparkle");
     sparkle.innerHTML = "✨";
 
-    sparkle.style.left = Math.random() * 100 + "vw";
-    sparkle.style.animationDuration = 4 + Math.random() * 4 + "s";
-    sparkle.style.animationDelay = Math.random() * 5 + "s";
+    sparkle.style.left = Math.random() * 100 + "%";
+    sparkle.style.top = Math.random() * 100 + "%";
+
+    sparkle.style.animationDuration = 5 + Math.random() * 3 + "s";
+
+    // ❌ REMOVE LONG DELAYS
+    sparkle.style.animationDelay = Math.random() * 1 + "s";
+
     sparkle.style.fontSize = 14 + Math.random() * 20 + "px";
 
     sparkleContainer.appendChild(sparkle);
   }
 }
-
 function type() {
   if (!typing) return;
 
@@ -186,7 +190,7 @@ if (startBtn) {
     for (let i = 0; i < 18; i++) {
       const heart = document.createElement("span");
       heart.className = "heart-float";
-      heart.innerHTML = "🤍";
+      heart.innerHTML = "💛";
       heart.style.left = Math.random() * 100 + "%";
       heart.style.animationDelay = Math.random() * 3 + "s";
       container.appendChild(heart);
