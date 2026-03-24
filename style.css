@@ -213,9 +213,9 @@ body {
 
 .final-box {
   width: 90%;
-  max-width: 420px;
+  max-width: 650px;
 
-  padding: 60px 50px 160px 50px; /* extra bottom space for seal */
+  padding: 70px 70px 150px 70px;
   margin: auto;
 
   position: relative;
