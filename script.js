@@ -242,15 +242,14 @@ function downloadCard() {
   const card = document.getElementById("birthdayCard");
   if (!card) return;
 
-  // 🔥 STEP 1: show it properly
+  // ✅ Move off-screen instead of hiding
   card.style.position = "fixed";
-  card.style.top = "0";
-  card.style.left = "0";
-  card.style.opacity = "1";
+  card.style.top = "-9999px";
+  card.style.left = "-9999px";
+  card.style.opacity = "1";   // KEEP VISIBLE
   card.style.zIndex = "9999";
   card.style.transform = "none";
 
-  // 🔥 STEP 2: wait for fonts + render
   document.fonts.ready.then(() => {
     setTimeout(() => {
 
@@ -265,14 +264,12 @@ function downloadCard() {
         link.href = canvas.toDataURL("image/png");
         link.click();
 
-        // 🔥 STEP 3: hide again
+        // restore hidden state
         card.style.position = "absolute";
         card.style.top = "-9999px";
         card.style.left = "-9999px";
-        card.style.opacity = "0";
-
       });
 
-    }, 300); // IMPORTANT delay
+    }, 300);
   });
 }
