@@ -23,18 +23,21 @@ body {
 
 /* Pages */
 .page {
-  min-height: 100vh;
+  height: 100vh;
   display: none;
+
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   text-align: center;
-  padding: 40px 20px;
+  padding: 20px;
 }
 
 .page.active {
   display: flex;
 }
+
 
 /* Titles */
 .title {
@@ -215,12 +218,10 @@ body {
   width: 90%;
   max-width: 420px;
 
-  padding: 60px 40px 150px 40px; /* extra bottom space for seal */
+  padding: 40px 25px 90px 25px; /* ✅ reduced */
   margin: auto;
-  margin-bottom: 40px; /* ⬅️ pushes entire box UP */
 
   position: relative;
-  overflow: visible;
 
   background: #f6e7c8;
 
@@ -287,8 +288,7 @@ body {
 .wax-seal {
   position: absolute;
 
-  bottom: -15px;   /* less overflow */
-  right: 12px;     /* bring inside */
+  right: 10px;     /* bring inside */
   bottom: 10px;   /* ⬅️ bring INSIDE instead of outside */
 
   width: 75px;     /* smaller for all screens */
@@ -845,4 +845,12 @@ position: relative;
 
 .final-btn {
   margin-top: 20px;
+}
+.page {
+  height: 100vh;
+  overflow: hidden;
+}
+
+#page6 {
+  overflow-y: auto;
 }
