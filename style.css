@@ -341,7 +341,7 @@ body {
 
 .vertical-card,
 .horizontal-card{
-  width: 90px;
+  width: 90%;
     max-width: 900px;
 
   height: 520px;
@@ -851,6 +851,8 @@ position: relative;
 }
 #page6 {
   overflow-y: auto;
+    max-height: 100dvh;  /* 👈 important */
+
 }
 @media (max-width: 768px) {
   .page {
