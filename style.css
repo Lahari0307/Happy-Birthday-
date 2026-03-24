@@ -215,8 +215,9 @@ body {
   width: 90%;
   max-width: 420px;
 
-  padding: 60px 50px 120px 50px; /* extra bottom space for seal */
+  padding: 60px 40px 150px 40px; /* extra bottom space for seal */
   margin: auto;
+  margin-bottom: 40px; /* ⬅️ pushes entire box UP */
 
   position: relative;
   overflow: visible;
@@ -288,6 +289,7 @@ body {
 
   bottom: -15px;   /* less overflow */
   right: 12px;     /* bring inside */
+  bottom: 10px;   /* ⬅️ bring INSIDE instead of outside */
 
   width: 75px;     /* smaller for all screens */
   height: 75px;
@@ -310,6 +312,8 @@ body {
   .final-box {
     width: 92%;
     padding: 35px 20px 90px 20px;
+        margin-bottom: 60px; /* more breathing space */
+
     font-size: 18px;
   }
 
@@ -319,7 +323,7 @@ body {
     font-size: 20px;
 
     right: 10px;
-    bottom: -10px;
+    bottom: 8px;
   }
 }
 .wax-seal span {
