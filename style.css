@@ -230,6 +230,7 @@ body {
   font-family: 'Dancing Script', cursive;
   font-size: 22px;
   line-height: 2;
+  overflow: hidden;  /* makes seal look attached */
 
   box-shadow:
     0 40px 80px rgba(0,0,0,0.5);
@@ -284,11 +285,12 @@ body {
 
 .wax-seal {
   position: absolute;
-  bottom: -20px;
-  right: 10px;
 
-  width: 95px;
-  height: 95px;
+  bottom: -15px;   /* less overflow */
+  right: 12px;     /* bring inside */
+
+  width: 75px;     /* smaller for all screens */
+  height: 75px;
 
   background: radial-gradient(circle at 35% 35%, #d10000, #7a0000);
 
@@ -298,14 +300,7 @@ body {
   align-items: center;
   justify-content: center;
 
-  font-size: 28px;
-  font-weight: bold;
-  color: gold;
-
-  box-shadow:
-    inset -10px -10px 20px rgba(0,0,0,0.6),
-    inset 5px 5px 10px rgba(255,255,255,0.2),
-    0 8px 20px rgba(0,0,0,0.5);
+  font-size: 22px;
 
   z-index: 5;
 }
@@ -314,16 +309,17 @@ body {
 @media (max-width: 768px) {
   .final-box {
     width: 92%;
-    padding: 40px 25px 100px 25px;
+    padding: 35px 20px 90px 20px;
     font-size: 18px;
   }
 
   .wax-seal {
-    width: 70px;
-    height: 70px;
-    font-size: 24px;
-    right: 20px;
-    bottom: -35px;
+    width: 65px;
+    height: 65px;
+    font-size: 20px;
+
+    right: 10px;
+    bottom: -10px;
   }
 }
 .wax-seal span {
