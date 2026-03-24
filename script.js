@@ -72,6 +72,7 @@ if (startBtn) {
 }
 
   /* ================= PAGE 1 : COUNTDOWN ================= */
+if (startBtn) {
   startBtn.addEventListener("click", () => {
 
   const music = document.getElementById("bgMusic");
@@ -83,6 +84,7 @@ if (startBtn) {
   if (typing) typing.classList.add("hidden");
   startCountdown();
 });
+}
 
   function startCountdown() {
     const area = document.getElementById("countdownArea");
@@ -119,10 +121,14 @@ if (startBtn) {
     const btn = document.getElementById(btnId);
     if (btn) {
       btn.addEventListener("click", () => {
-        showPage(navButtons[btnId]);
-      });
-    }
-  });
+  showPage(navButtons[btnId]);
+
+  if (navButtons[btnId] === "page6") {
+    fadeOutMusic(); // 🎵 fade on final page
+  }
+});
+}
+});
 
   /* ================= PAGE 3 : GIFT BOXES ================= */
   const messages = [
@@ -246,4 +252,20 @@ function downloadCard() {
     link.href = canvas.toDataURL("image/png");
     link.click();
   });
+}
+function fadeOutMusic() {
+  const music = document.getElementById("bgMusic");
+  if (!music) return;
+
+  let volume = music.volume;
+
+  const fade = setInterval(() => {
+    if (volume > 0.05) {
+      volume -= 0.05;
+      music.volume = volume;
+    } else {
+      music.pause();
+      clearInterval(fade);
+    }
+  }, 200);
 }
