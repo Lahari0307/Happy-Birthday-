@@ -23,15 +23,13 @@ body {
 
 /* Pages */
 .page {
-  min-height: 100dvh;
+  min-height: 100vh;
   display: none;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   text-align: center;
   padding: 40px 20px;
-    padding-top: 60px;             /* ✅ add space at top */
-
 }
 
 .page.active {
@@ -141,9 +139,9 @@ body {
 .gift-box {
   width: 120px;
   height: 120px;
-  background: #fdf1e6; /* soft cream */
-  color: #800020; /* burgundy text */
-  border: 2px solid #d4af37; /* gold border */
+  background: #fdf1e6;
+  color: #800020;
+  border: 2px solid #d4af37;
   border-radius: 18px;
   font-size: 42px;
   display: flex;
@@ -153,12 +151,11 @@ body {
   font-family: 'Dancing Script', cursive;
 }
 
-/* When box opens */
 .gift-box.opened {
   font-size: 16px;
   padding: 14px;
-  background: #fff8e7; /* lighter cream */
-  color: #5a0018; /* darker burgundy for better visibility */
+  background: #fff8e7;
+  color: #5a0018;
 }
 
 /* Tag */
@@ -184,12 +181,10 @@ body {
   box-shadow: 0 10px 25px rgba(0,0,0,0.4);
 }
 
-
 .tag-body .name {
   font-size: 34px;
   color: #d4af37;
 }
-
 
 @keyframes sway {
   0% { transform: rotate(-2deg); }
@@ -197,100 +192,65 @@ body {
   100% { transform: rotate(-2deg); }
 }
 
-/* Final Message Box */
-
-/* ===== FINAL MESSAGE PARCHMENT STYLE ===== */
-
-/* ===============================
-   FINAL MESSAGE – PARCHMENT STYLE
-================================== */
-
-/* ===============================
-   FINAL MESSAGE – VINTAGE LETTER
-================================== */
-
-/* ============================= */
-/* CLEAN PARCHMENT STYLE */
-/* ============================= */
-
+/* FINAL BOX */
 .final-box {
   width: 90%;
-  max-width: 650px;
-
-  padding: 70px 70px 150px 70px;
-  margin: 40px auto;
-
+  max-width: 420px;
+  padding: 60px 50px 120px 50px;
+  margin: auto;
   position: relative;
   overflow: visible;
-
   background: #f6e7c8;
-
   border-radius: 8px;
-
   color: #5b3a1a;
-
   font-family: 'Dancing Script', cursive;
   font-size: 22px;
   line-height: 2;
-
-  box-shadow:
-    0 40px 80px rgba(0,0,0,0.5);
+  box-shadow: 0 40px 80px rgba(0,0,0,0.5);
 }
 
-
-
-/* Paper grain */
 .final-box::before {
   content: "";
   position: absolute;
   inset: 0;
   pointer-events: none;
-
-  background-image:
-    radial-gradient(rgba(0,0,0,0.05) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(0,0,0,0.05) 1px, transparent 1px);
   background-size: 3px 3px;
-
   border-radius: 8px;
 }
 
-
-/* Soft burnt edge only (NO center line) */
 .final-box::after {
   content: "";
   position: absolute;
   inset: 0;
   pointer-events: none;
   border-radius: 8px;
-
   box-shadow:
     inset 0 0 30px rgba(40, 15, 0, 0.7),
     inset 0 0 80px rgba(70, 25, 0, 0.5);
 }
 
-
-/* Letter text */
 .final-msg {
   position: relative;
   z-index: 2;
   text-align: left;
 }
+
 .center-line {
   text-align: center;
   font-size: 28px;
   margin-bottom: 10px;
 }
 
-/* ============================= */
-/* WAX SEAL FIX */
-/* ============================= */
-
+/* ✅ FIXED WAX SEAL */
 .wax-seal {
   position: absolute;
-  bottom: 20px;
-  right: 15px;
+  bottom: -10px;
+  right: 50%;
+  transform: translateX(50%);
 
-  width: 95px;
-  height: 95px;
+  width: 85px;
+  height: 85px;
 
   background: radial-gradient(circle at 35% 35%, #d10000, #7a0000);
 
@@ -300,7 +260,7 @@ body {
   align-items: center;
   justify-content: center;
 
-  font-size: 28px;
+  font-size: 26px;
   font-weight: bold;
   color: gold;
 
@@ -312,12 +272,14 @@ body {
   z-index: 5;
 }
 
+.wax-seal span {
+  transform: translateY(-6px);
+}
+
 /* Mobile */
 @media (max-width: 768px) {
   .final-box {
     width: 92%;
-        padding-bottom: 140px;  /* 👈 ensures space */
-
     padding: 40px 25px 100px 25px;
     font-size: 18px;
   }
@@ -326,555 +288,6 @@ body {
     width: 70px;
     height: 70px;
     font-size: 24px;
-    right: 20px;
-    bottom: -10px;
-  }
-}
-.wax-seal span {
-  transform: translateY(-6px);  /* adjust this value */
-}
-/* ===== POLAROID BIRTHDAY CARD ===== */
-
-.download-only {
-  position: fixed;
-  left: -9999px;
-  top: -9999px;
-}
-
-.vertical-card,
-.horizontal-card{
-  width: 90%;
-    max-width: 900px;
-
-  height: 520px;
-  background: #f6dce3;
-  border-radius: 35px;
-  box-shadow: 0 25px 60px rgba(0,0,0,0.08);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 60px;
-  gap: 60px;
-  position: relative;
-}
-
-.polaroid {
-  background: #ffffff;
-  padding: 18px;
-  border-radius: 20px;
-  width: 360px;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.06);
-}
-
-.polaroid img {
-  width: 100%;
-  height: 360px;
-  object-fit: cover;
-  border-radius: 15px;
-}
-
-/* Birthday Title */
-.card-title {
-  font-family: 'Great Vibes', cursive;
-  font-size: 60px;
-  color: #b03052;
-  text-align: center;
-  margin-bottom: 25px;
-  margin-left: -20px;
-}
-
-.card-title .heart {
-  margin-left: 6px;
-}
-
-/* Card center */
-.card-content {
-  flex: 1;
-  text-align: center;
-}
-
-.card-info {
-  margin-top: 20px;
-  font-size: 22px;
-  color: #5a2a3a;
-  font-family: 'Dancing Script', cursive;
-}
-
-.infinity {
-  color: #b03052;
-  font-size: 24px;
-}
-
-.card-quote {
-  font-family: 'Great Vibes', cursive;
-  font-size: 26px;
-  color: #7a3b52;
-  line-height: 1.8;
-}
-
-/* Countdown */
-#countdownArea {
-  display: none;
-}
-
-#countdownArea:not(.hidden) {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.next-text {
-  font-family: 'Great Vibes', cursive;
-  font-size: 40px;
-  font-weight: 700;
-  color: #ff2f6e;
-  margin-bottom: 12px;
-  text-shadow: 0 3px 8px rgba(255,105,180,0.4);
-}
-
-#countdownNumber {
-  font-size: 64px;
-  font-family: 'Great Vibes', cursive;
-  color: #ff2f6e;
-  animation: pop 1s infinite;
-}
-
-@keyframes pop {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.15); }
-  100% { transform: scale(1); }
-}
-
-/* Floating Hearts */
-.hearts-bg {
-  position: relative;
-  overflow: hidden;
-}
-
-.hearts-container {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-.heart-float {
-  position: absolute;
-  bottom: -40px;
-  font-size: 26px;
-  animation: floatUp 6s linear infinite;
-  opacity: 0.7;
-}
-
-@keyframes floatUp {
-  0% {
-    transform: translateY(0) scale(0.8);
-    opacity: 0;
-  }
-  20% { opacity: 1; }
-  100% {
-    transform: translateY(-110vh) scale(1.2);
-    opacity: 0;
-  }
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-  .gallery {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .vertical-card {
-    flex-direction: column;
-    height: auto;
-    width: 90%;
-  }
-}
-/* ===== NEW HORIZONTAL DOWNLOAD CARD ===== */
-
-/* ===== UPDATED LUXURY CARD ===== */
-
-/* ===== VINTAGE ROYAL LOVE LETTER CARD ===== */
-
-.horizontal-card {
-  width: 90%;
-  max-width: 950px;
-  height: 520px;
-
-  background: linear-gradient(
-    135deg,
-    #800020,
-    #5a0018
-  );
-
-  display: flex;
-
-  border: 2px solid #d4af37;
-
-  /* REMOVE ALL CURVE */
-  border-radius: 0;
-
-  box-shadow:
-    0 20px 60px rgba(0,0,0,0.6);
-}
-
-/* LEFT IMAGE SIDE */
-.card-left {
-  width: 45%;
-  padding: 35px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-border-right: none;
-position: relative;
-}
-
-.card-left::after {
-  content: "";
-  position: absolute;
-  right: 0;
-  top: 10%;
-  height: 80%;
-  width: 1px;
-  background: rgba(255, 215, 120, 0.6);
-}
-
-.card-left img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 0;
-}
-
-/* RIGHT SIDE */
-.card-right {
-  width: 55%;
-  padding: 60px 55px;
-  display: flex;
-  background: transparent;
-  flex-direction: column;
-  justify-content: center;
-  text-align: left;
-  color: #f5d76e; /* soft gold */
-}
-
-/* TITLE */
-.card-title {
-  font-size: 44px;
-  color: #d4af37;
-  letter-spacing: 1px;
-  white-space: nowrap;
-}
-
-/* VALIDITY */
-.card-validity {
-  display: flex;
-  justify-content: space-between;
-  font-size: 22px;
-  margin-top: 45px;
-  font-family: 'Dancing Script', cursive;
-}
-
-.valid-block {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.label {
-  font-size: 20px;
-  opacity: 0.7;
-  color: #f8e7b0;
-
-}
-
-.infinity {
-  color: #c9a227;
-  font-size: 26px;
-}
-
-
-
-/* QUOTE */
-.card-quote {
-  font-size: 23px;
-  font-family: 'Great Vibes', cursive;
-  font-style: italic;
-  line-height: 1.8;
-  color: #f8e7b0;
-  opacity: 0.9;
-  margin-top: 60px;   /* THIS pushes it lower */
-  text-shadow: 0 0 12px rgba(212,175,55,0.4);
-}
-
-.choco-container {
-  margin-top: 30px;
-}
-
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
-}
-
-
-
-.hidden {
-  display: none !important;
-}
-
-.popup {
-  margin-top: 40px;
-  display: flex;
-  justify-content: center;
-  opacity: 0;
-  transform: scale(0.5);
-  transition: all 0.6s ease;
-}
-
-.popup.show {
-  opacity: 1;
-  transform: scale(1);
-}
-@keyframes popIn {
-  0% {
-    transform: scale(0.5);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-.tap-text {
-  margin-top: 20px;
-  font-size: 22px;
-  color: #ffd700;
-  font-family: 'Great Vibes', cursive;
-  animation: glowText 1.5s infinite alternate;
-  transition: opacity 0.5s ease;
-}
-
-/* Gift tag style */
-.gift-card {
-  background: linear-gradient(145deg, #fff5f8, #ffe4ec);
-  padding: 30px 45px;
-  border-radius: 25px;
-  border: 3px dashed #ff69b4;
-  box-shadow: 0 15px 40px rgba(255,105,180,0.4);
-  text-align: center;
-  animation: floatCard 2.5s ease-in-out infinite;
-}
-
-.gift-card h3 {
-  font-size: 30px;
-  margin-bottom: 10px;
-  color: #d63384;
-  font-family: 'Great Vibes', cursive;
-}
-
-.gift-card p {
-  font-size: 20px;
-  color: #6a1b4d;
-}
-@keyframes floatCard {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
-
-@keyframes glowText {
-  from { text-shadow: 0 0 5px gold; opacity: 0.7; }
-  to { text-shadow: 0 0 20px gold; opacity: 1; }
-}
-
-/* Chocolate subtle shake */
-.choco {
-  width: 190px;
-  cursor: pointer;
-  animation: floatChoco 2.5s ease-in-out infinite;
-  transition: transform 0.4s ease, filter 0.4s ease;
-}
-@keyframes floatChoco {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0); }
-}
-
-
-
-.choco.clicked {
-  animation: none;
-  transform: scale(1.3);
-  filter: drop-shadow(0 0 30px gold);
-}
-
-
-
-/* Confetti */
-.confetti {
-  position: fixed;
-  width: 10px;
-  height: 10px;
-  background: gold;
-  border-radius: 50%;
-  z-index: 9999;
-  animation: burst 1.2s ease-out forwards;
-}
-
-
-@keyframes burst {
-  to {
-    transform: translate(var(--x), var(--y));
-    opacity: 0;
-  }
-}
-/* Smooth appearing next button */
-.fade-in-btn {
-  animation: slideFadeUp 0.8s ease forwards;
-}
-
-@keyframes slideFadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Glowing hint text (Gallery page) */
-.hint {
-  font-size: 20px;
-  margin-bottom: 20px;
-  color: #fff; /* make text white */
-  font-family: 'Dancing Script', cursive;
-  animation: softGlow 2s ease-in-out infinite alternate;
-}
-
-@keyframes softGlow {
-  from {
-    text-shadow: 0 0 5px #ffffff,
-                 0 0 10px #ffb6c1,
-                 0 0 15px #ff69b4;
-  }
-  to {
-    text-shadow: 0 0 10px #ffffff,
-                 0 0 20px #ff1493,
-                 0 0 30px #ff1493;
-  }
-}
-
-.sparkle-layer {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-.sparkle {
-  position: absolute;
-  font-size: 18px;
-  opacity: 0.7;
-  animation: floatSparkle linear infinite;
-}
-
-
-#startSurprise {
-  animation: pulseBtn 2.2s ease-in-out infinite;
-    margin-top: 60px;   /* 👈 add this */
-
-}
-
-@keyframes floatSparkle {
-  0% {
-    transform: translateY(0);
-    opacity: 0;
-  }
-  10% {
-    opacity: 0.8;
-  }
-  100% {
-    transform: translateY(-200px);
-    opacity: 0;
-  }
-}
-
-@keyframes pulseBtn {
-  0% { box-shadow: 0 0 0 rgba(255,215,0,0.4); }
-  50% { box-shadow: 0 0 18px rgba(255,215,0,0.8); }
-  100% { box-shadow: 0 0 0 rgba(255,215,0,0.4); }
-}
-.spotlight {
-  position: relative;
-  z-index: 1;
-}
-
-.spotlight::before {
-  content: "";
-  position: absolute;
-  width: 140%;
-  height: 140%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgba(255,215,0,0.4) 0%, transparent 70%);
-  z-index: -1;
-  filter: blur(8px);
-}
-.download-line {
-  margin-top: 10px;
-  font-size: 18px;
-  text-align: center;
-    color: #19dbd8;   /* 👈 add this */
-
-}
-
-#page5 .hug-text {
-  margin-top: 25px;
-  font-size: 17px;
-  color: #19dbd8 !important;  /* 👈 add this */
-  text-align: center;
-  line-height: 1.6;
-  max-width: 450px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.final-btn {
-  margin-top: 20px;
-}
-#page6 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  overflow-y: auto;
-    max-height: 100dvh;  /* 👈 important */
-      padding-top: 80px;   /* 👈 extra safety */
-
-
-}
-@media (max-width: 768px) {
-  .page {
-    padding: 20px 15px;
-  }
-
-  .title {
-    font-size: 30px;
-  }
-
-  #typingText {
-    font-size: 34px;
-  }
-
-  .btn {
-    font-size: 18px;
+    bottom: -20px;
   }
 }
