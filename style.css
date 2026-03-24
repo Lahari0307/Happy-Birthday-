@@ -26,10 +26,12 @@ body {
   min-height: 100dvh;
   display: none;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   text-align: center;
   padding: 40px 20px;
+    padding-top: 60px;             /* ✅ add space at top */
+
 }
 
 .page.active {
@@ -852,6 +854,8 @@ position: relative;
 #page6 {
   overflow-y: auto;
     max-height: 100dvh;  /* 👈 important */
+      padding-top: 80px;   /* 👈 extra safety */
+
 
 }
 @media (max-width: 768px) {
