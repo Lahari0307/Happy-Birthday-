@@ -37,7 +37,9 @@ body {
 .page.active {
   display: flex;
 }
-
+.page.active {
+  display: flex;
+}
 
 /* Titles */
 .title {
@@ -222,6 +224,7 @@ body {
   margin: auto;
 
   position: relative;
+  overflow: visible;
 
   background: #f6e7c8;
 
@@ -288,6 +291,7 @@ body {
 .wax-seal {
   position: absolute;
 
+  bottom: 8px;   /* less overflow */
   right: 10px;     /* bring inside */
   bottom: 10px;   /* ⬅️ bring INSIDE instead of outside */
 
@@ -845,12 +849,4 @@ position: relative;
 
 .final-btn {
   margin-top: 20px;
-}
-.page {
-  height: 100vh;
-  overflow: hidden;
-}
-
-#page6 {
-  overflow-y: auto;
 }
