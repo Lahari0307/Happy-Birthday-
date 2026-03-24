@@ -328,9 +328,11 @@ body {
 /* ===== POLAROID BIRTHDAY CARD ===== */
 
 .download-only {
-  position: fixed;
-  left: -9999px;
-  top: -9999px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .vertical-card {
@@ -485,8 +487,9 @@ body {
 /* ===== VINTAGE ROYAL LOVE LETTER CARD ===== */
 
 .horizontal-card {
-  width: 950px;
-  height: 520px;
+  width: 800px;
+  height: auto;
+  overflow: hidden;
 
   background: linear-gradient(
     135deg,
