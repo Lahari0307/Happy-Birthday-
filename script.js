@@ -240,32 +240,39 @@ if (nextBtn) {
 }
 function downloadCard() {
   const card = document.getElementById("birthdayCard");
+  if (!card) return;
 
-  if (!card) {
-    alert("Card not found!");
-    return;
-  }
+  // 🔥 STEP 1: show it properly
+  card.style.position = "fixed";
+  card.style.top = "0";
+  card.style.left = "0";
+  card.style.opacity = "1";
+  card.style.zIndex = "9999";
+  card.style.transform = "none";
 
-  html2canvas(card, { scale: 2 }).then(canvas => {
-    const link = document.createElement("a");
-    link.download = "Happy-Birthday-Divya.png";
-    link.href = canvas.toDataURL("image/png");
-    link.click();
+  // 🔥 STEP 2: wait for fonts + render
+  document.fonts.ready.then(() => {
+    setTimeout(() => {
+
+      html2canvas(card, {
+        scale: 2,
+        useCORS: true,
+        backgroundColor: null
+      }).then(canvas => {
+
+        const link = document.createElement("a");
+        link.download = "Happy-Birthday-Divya.png";
+        link.href = canvas.toDataURL("image/png");
+        link.click();
+
+        // 🔥 STEP 3: hide again
+        card.style.position = "absolute";
+        card.style.top = "-9999px";
+        card.style.left = "-9999px";
+        card.style.opacity = "0";
+
+      });
+
+    }, 300); // IMPORTANT delay
   });
-}
-function fadeOutMusic() {
-  const music = document.getElementById("bgMusic");
-  if (!music) return;
-
-  let volume = music.volume;
-
-  const fade = setInterval(() => {
-    if (volume > 0.05) {
-      volume -= 0.05;
-      music.volume = volume;
-    } else {
-      music.pause();
-      clearInterval(fade);
-    }
-  }, 200);
 }
