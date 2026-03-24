@@ -894,3 +894,16 @@ position: relative;
   object-fit: cover;
   display: block;
 }
+
+
+
+/* CLEAN FIX */
+.horizontal-card {
+  width: 100%;
+  max-width: 950px;
+  margin: 0 auto;   /* center */
+}
+
+html, body {
+  overflow-x: hidden;  /* remove white strip */
+}
