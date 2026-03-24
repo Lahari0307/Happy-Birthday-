@@ -339,8 +339,7 @@ body {
   top: -9999px;
 }
 
-.vertical-card,
-.horizontal-card{
+.vertical-card{
   width: 90%;   /* ✅ FIX */
     max-width: 900px;
 
