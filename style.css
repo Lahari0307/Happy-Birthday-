@@ -23,20 +23,15 @@ body {
 
 /* Pages */
 .page {
-  height: 100vh;
+  min-height: 100vh;
   display: none;
-
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   text-align: center;
-  padding: 20px;
+  padding: 40px 20px;
 }
 
-.page.active {
-  display: flex;
-}
 .page.active {
   display: flex;
 }
@@ -220,7 +215,7 @@ body {
   width: 90%;
   max-width: 420px;
 
-  padding: 40px 25px 90px 25px; /* ✅ reduced */
+  padding: 60px 50px 120px 50px; /* extra bottom space for seal */
   margin: auto;
 
   position: relative;
@@ -235,7 +230,6 @@ body {
   font-family: 'Dancing Script', cursive;
   font-size: 22px;
   line-height: 2;
-  overflow: hidden;  /* makes seal look attached */
 
   box-shadow:
     0 40px 80px rgba(0,0,0,0.5);
@@ -290,13 +284,11 @@ body {
 
 .wax-seal {
   position: absolute;
+  bottom: -20px;
+  right: 10px;
 
-  bottom: 8px;   /* less overflow */
-  right: 10px;     /* bring inside */
-  bottom: 10px;   /* ⬅️ bring INSIDE instead of outside */
-
-  width: 75px;     /* smaller for all screens */
-  height: 75px;
+  width: 95px;
+  height: 95px;
 
   background: radial-gradient(circle at 35% 35%, #d10000, #7a0000);
 
@@ -306,7 +298,14 @@ body {
   align-items: center;
   justify-content: center;
 
-  font-size: 22px;
+  font-size: 28px;
+  font-weight: bold;
+  color: gold;
+
+  box-shadow:
+    inset -10px -10px 20px rgba(0,0,0,0.6),
+    inset 5px 5px 10px rgba(255,255,255,0.2),
+    0 8px 20px rgba(0,0,0,0.5);
 
   z-index: 5;
 }
@@ -315,19 +314,16 @@ body {
 @media (max-width: 768px) {
   .final-box {
     width: 92%;
-    padding: 35px 20px 90px 20px;
-        margin-bottom: 60px; /* more breathing space */
-
+    padding: 40px 25px 100px 25px;
     font-size: 18px;
   }
 
   .wax-seal {
-    width: 65px;
-    height: 65px;
-    font-size: 20px;
-
-    right: 10px;
-    bottom: 8px;
+    width: 70px;
+    height: 70px;
+    font-size: 24px;
+    right: 20px;
+    bottom: -35px;
   }
 }
 .wax-seal span {
@@ -336,11 +332,9 @@ body {
 /* ===== POLAROID BIRTHDAY CARD ===== */
 
 .download-only {
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  pointer-events: none;
+  position: fixed;
+  left: -9999px;
+  top: -9999px;
 }
 
 .vertical-card {
@@ -495,9 +489,8 @@ body {
 /* ===== VINTAGE ROYAL LOVE LETTER CARD ===== */
 
 .horizontal-card {
-  width: 800px;
-  height: auto;
-  overflow: hidden;
+  width: 950px;
+  height: 520px;
 
   background: linear-gradient(
     135deg,
@@ -850,3 +843,13 @@ position: relative;
 .final-btn {
   margin-top: 20px;
 }
+
+Your CSS is actually very well done already 👀🔥
+The issue you're facing is just a small positioning + scaling problem on mobile — not a design problem.
+
+I checked your code carefully, and here’s the exact minimal fix (no breaking your design) 👇
+
+✅ 🔥 FINAL FIX (JUST EDIT THESE PARTS)
+1. Fix Wax Seal (main issue)
+
+👉 Replace your current .wax-seal with this:
