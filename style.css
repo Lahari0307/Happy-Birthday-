@@ -334,9 +334,9 @@ body {
 /* ===== POLAROID BIRTHDAY CARD ===== */
 
 .download-only {
-  position: fixed;
-  left: -9999px;
+  position: absolute;
   top: -9999px;
+  left: -9999px;
 }
 
 .vertical-card{
@@ -356,10 +356,9 @@ body {
 }
 
 .polaroid {
-  background: #ffffff;
-  padding: 18px;
+  width: 360px;          /* fix width */
   border-radius: 20px;
-  width: 360px;
+  overflow: hidden;      /* 🔥 removes any side gap */
   box-shadow: 0 15px 35px rgba(0,0,0,0.06);
 }
 
@@ -367,7 +366,8 @@ body {
   width: 100%;
   height: 360px;
   object-fit: cover;
-  border-radius: 15px;
+  display: block;        /* removes bottom gap */
+  border-radius: 20px;   /* match container */
 }
 
 /* Birthday Title */
@@ -517,7 +517,7 @@ body {
 /* LEFT IMAGE SIDE */
 .card-left {
   width: 45%;
-  padding: 35px;
+  padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -867,4 +867,30 @@ position: relative;
   .btn {
     font-size: 18px;
   }
+}
+/* ===== FIX FOR CARD GAP ===== */
+
+.horizontal-card {
+  display: flex;
+  gap: 0;
+  font-size: 0; /* prevents tiny rendering gaps */
+}
+
+.card-left {
+  flex: 0 0 45%;
+  margin: 0;
+  padding: 0;
+}
+
+.card-right {
+  flex: 0 0 55%;
+  margin: 0;
+  padding: 60px 55px; /* keep your original spacing */
+}
+
+.card-left img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
