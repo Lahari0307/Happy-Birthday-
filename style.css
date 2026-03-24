@@ -23,7 +23,7 @@ body {
 
 /* Pages */
 .page {
-  min-height: 100vh;
+  min-height: 100dvh;
   display: none;
   flex-direction: column;
   justify-content: center;
@@ -284,7 +284,7 @@ body {
 
 .wax-seal {
   position: absolute;
-  bottom: -20px;
+  bottom: 10px;
   right: 10px;
 
   width: 95px;
@@ -323,7 +323,7 @@ body {
     height: 70px;
     font-size: 24px;
     right: 20px;
-    bottom: -35px;
+    bottom: -10px;
   }
 }
 .wax-seal span {
@@ -337,8 +337,11 @@ body {
   top: -9999px;
 }
 
-.vertical-card {
-  width: 900px;
+.vertical-card,
+.horizontal-card{
+  width: 90px;
+    max-width: 900px;
+
   height: 520px;
   background: #f6dce3;
   border-radius: 35px;
@@ -489,7 +492,8 @@ body {
 /* ===== VINTAGE ROYAL LOVE LETTER CARD ===== */
 
 .horizontal-card {
-  width: 950px;
+  width: 90%;
+  max-width: 950px;
   height: 520px;
 
   background: linear-gradient(
@@ -843,13 +847,23 @@ position: relative;
 .final-btn {
   margin-top: 20px;
 }
+#page6 {
+  overflow-y: auto;
+}
+@media (max-width: 768px) {
+  .page {
+    padding: 20px 15px;
+  }
 
-Your CSS is actually very well done already 👀🔥
-The issue you're facing is just a small positioning + scaling problem on mobile — not a design problem.
+  .title {
+    font-size: 30px;
+  }
 
-I checked your code carefully, and here’s the exact minimal fix (no breaking your design) 👇
+  #typingText {
+    font-size: 34px;
+  }
 
-✅ 🔥 FINAL FIX (JUST EDIT THESE PARTS)
-1. Fix Wax Seal (main issue)
-
-👉 Replace your current .wax-seal with this:
+  .btn {
+    font-size: 18px;
+  }
+}
