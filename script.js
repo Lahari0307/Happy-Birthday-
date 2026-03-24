@@ -126,13 +126,13 @@ if (startBtn) {
 
   /* ================= PAGE 3 : GIFT BOXES ================= */
   const messages = [
-    "You make my days brighter 🤍",
-    "Your smile heals me 😊",
-    "Life feels softer with you 💫",
-    "My heart chose you 💖",
-    "Always & forever ✨",
-    "This is just the beginning 💕"
-  ];
+  "You make my days brighter 🤍",
+  "You stay in my thoughts more than you know 💫",
+  "Some connections don’t need reasons… but I’m glad it was you 🥺",
+  "I’m really glad I have you 💖",
+  "My heart didn’t ask… it just chose you 💖",
+  "Always & forever ✨"
+];
 
   let index = 0;
   const boxArea = document.getElementById("boxArea");
@@ -165,20 +165,7 @@ if (startBtn) {
   }
   if (boxArea) createBox();
 
-  /* ================= DOWNLOAD CARD ================= */
-  const downloadBtn = document.getElementById("downloadCard");
-  const card = document.getElementById("birthdayCard");
-
-  if (downloadBtn && card && window.html2canvas) {
-    downloadBtn.addEventListener("click", () => {
-      html2canvas(card, { scale: 2 }).then(canvas => {
-        const link = document.createElement("a");
-        link.download = "Happy-Birthday-Divya.png";
-        link.href = canvas.toDataURL("image/png");
-        link.click();
-      });
-    });
-  }
+  
 
   /* ================= FLOATING HEARTS ================= */
   function createHearts() {
@@ -244,4 +231,19 @@ if (nextBtn) {
   }
 
   choco.onclick = null;
+}
+function downloadCard() {
+  const card = document.getElementById("birthdayCard");
+
+  if (!card) {
+    alert("Card not found!");
+    return;
+  }
+
+  html2canvas(card, { scale: 2 }).then(canvas => {
+    const link = document.createElement("a");
+    link.download = "Happy-Birthday-Divya.png";
+    link.href = canvas.toDataURL("image/png");
+    link.click();
+  });
 }
